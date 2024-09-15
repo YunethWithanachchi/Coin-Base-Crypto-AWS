@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crypto-price-deployment
+spec:
+  replicas: 2  # Number of container instances
+  selector:
+    matchLabels:
+      app: crypto-price
+  template:
+    metadata:
+      labels:
+        app: crypto-price
+    spec:
+      containers:
+      - name: crypto-price-container
+        image: 851725544786.dkr.ecr.us-east-1.amazonaws.com/crypto-price-service:latest
+        ports:
+        - containerPort: 5000

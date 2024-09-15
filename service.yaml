@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: crypto-price-service
+spec:
+  selector:
+    app: crypto-price
+  ports:
+    - protocol: TCP
+      port: 80  # Expose port 80 to the internet
+      targetPort: 5000  # Forward to port 5000 in the container
+  type: LoadBalancer
